@@ -1,0 +1,5 @@
+
+# Unity Project common ignorings
+Temp/
+Library/
+Logs/
