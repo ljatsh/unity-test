@@ -13,36 +13,43 @@ public class Surface : MonoBehaviour {
 
   public enum FunctionName {
     Sine,
-    MultiSine
+    MultiSine,
+    Sine2D,
+    MultiSine2D,
+    Ripple,
+    Cylinder,
+    Sphere,
+    Torous
   };
 
   public FunctionName currentFunction = FunctionName.Sine;
 
-  private const Single showRangeX = 6.0f;
+  private const Single showRange = 2.0f;
   private Transform[] points;
 
-  private delegate float MappingFunction(float x, float z, float t);
+  private delegate Vector3 MappingFunction(float u, float v, float t);
   private MappingFunction[] functions = new MappingFunction[] {
     SineFunction,
-    MultiSineFunction
+    MultiSineFunction,
+    Sine2DFunction,
+    MultiSine2DFunction,
+    RippleFunction,
+    CylinderFunction,
+    SphereFunction,
+    TorusFunction
   };
+
+  private static float pi = Mathf.PI;
 
   void Awake() {
     points = new Transform[resolution * resolution];
 
-    Single step = showRangeX / resolution;
+    Single step = showRange / resolution;
     Vector3 scale = Vector3.one * step;
 
-    Vector3 position;
-    float z;
     for (int i=0; i<resolution; i++) {
-      z = -showRangeX/2 + step * i;
-
       for (int j=0; j<resolution; j++) {
         var cp = Instantiate(sample, root);
-        position = Vector3.right * (-showRangeX/2 + step * j);
-        position.z = z;
-        cp.localPosition = position;
         cp.localScale = scale;
 
         points[i * resolution + j] = cp;
@@ -56,26 +63,72 @@ public class Surface : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    Vector3 point;
     var mapping = functions[(int)currentFunction];
     if (mapping == null)
       return;
 
-    foreach (var cp in points) {
-      point = cp.localPosition;
-      point.y = mapping(point.x, point.z, Time.time);
-      cp.localPosition = point;
+    float step = showRange * 1.0f / resolution;
+    float t = Time.time;
+    for (int i=0; i<resolution; i++) {
+      float u = -showRange * 0.5f + step * i;
+
+      for (int j=0; j<resolution; j++) {
+        float v = -showRange * 0.5f + step * j;
+        points[i * resolution + j].localPosition = mapping(u, v, t);
+      }
     }
   }
 
-  static float SineFunction (float x, float z, float t) {
-    return Mathf.Sin(Mathf.PI * (x + t));
+  static Vector3 SineFunction(float x, float z, float t) {
+    return new Vector3(x, Mathf.Sin(pi * (x + t)), z);
   }
 
-  static float MultiSineFunction (float x, float z, float t) {
-    float y = Mathf.Sin(Mathf.PI * (x + t));
-    y += Mathf.Sin(2f * Mathf.PI * (x + 2f * t)) / 2f;
+  static Vector3 MultiSineFunction(float x, float z, float t) {
+    float y = Mathf.Sin(pi * (x + t));
+    y += Mathf.Sin(2f * pi * (x + 2f * t)) / 2f;
     y *= 2f / 3f;
-    return y;
+    return new Vector3(x, y, z);
+  }
+
+  static Vector3 Sine2DFunction(float x, float z, float t) {
+    float y = Mathf.Sin(pi * (x + t));
+    y += Mathf.Sin(x * (z + t));
+    y *= 0.5f;
+    return new Vector3(x, y, z);
+  }
+
+  static Vector3 MultiSine2DFunction(float x, float z, float t) {
+    float y = 4f * Mathf.Sin(pi * (x + z + t * 0.5f));
+    y += Mathf.Sin(pi * (x + t));
+    y += Mathf.Sin(2f * pi * (z + 2f * t)) * 0.5f;
+    y *= 1f / 5.5f;
+    return new Vector3(x, y, z);
+  }
+
+  static Vector3 RippleFunction (float x, float z, float t) {
+    float d = Mathf.Sqrt(x * x + z * z);
+    float y = Mathf.Sin(pi * (4f * d - t));
+    return new Vector3(x, y, z);
+  }
+
+  static Vector3 CylinderFunction(float u, float v, float t) {
+    //float radius = 1f; // Cylinder
+    // float radius = 1f + Mathf.Sin(6f * pi * u) * 0.2f; // Wobby Cyliner
+    //float radius = 1f + Mathf.Sin(2f * pi * v) * 0.2f;
+    float radius = 0.8f + Mathf.Sin(pi * (6f * u + 2f * v + t)) * 0.2f; // Twisting Cylinder
+    return new Vector3(radius * Mathf.Sin(pi * u), v, radius * Mathf.Cos(pi * u));
+  }
+
+  static Vector3 SphereFunction(float u, float v, float t) {
+    float r = Mathf.Cos(pi * 0.5f * v);
+    return new Vector3(r * Mathf.Sin(pi * u), Mathf.Sin(pi * 0.5f * v), r * Mathf.Cos(pi * u));
+  }
+
+  static Vector3 TorusFunction(float u, float v, float t) {
+    float r1 = 1f;
+    float r2 = 0.5f;
+    float s = r2 * Mathf.Cos(pi * v) + r1;
+
+    return new Vector3(s * Mathf.Sin(pi * u), r2 * Mathf.Sin(pi * v), s * Mathf.Cos(pi * u));
   }
 }
