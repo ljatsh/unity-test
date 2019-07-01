@@ -4,3 +4,5 @@ Temp/
 Library/
 Logs/
 obj/
+*.csproj
+*.sln
