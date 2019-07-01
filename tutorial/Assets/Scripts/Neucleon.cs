@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO. RequireComponent
+
 [RequireComponent(typeof(Rigidbody))]
 public class Neucleon : MonoBehaviour {
   public float attaractionForce;
