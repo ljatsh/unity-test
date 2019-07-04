@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO. Object Assets
+// TODO. CSharp Serialization
 public class ObjectVarietyGame : Game
 {
   public ShapeFactory factory;
@@ -39,6 +41,7 @@ public class ObjectVarietyGame : Game
       gameWriter.Write(shapes.Count);
       foreach(var obj in shapes) {
         gameWriter.Write(obj.ShapeId);
+        gameWriter.Write(obj.MaterialId);
         obj.Save(gameWriter);
       }
     }
@@ -52,10 +55,11 @@ public class ObjectVarietyGame : Game
       var gameReader = new GameDataReader(reader);
 
       int count = gameReader.ReadInt();
-      int shapeId;
+      int shapeId, materialId;
       for (int i=0; i<count; i++) {
         shapeId = gameReader.ReadInt();
-        Shape spawn = factory.getShape(shapeId);
+        materialId = gameReader.ReadInt();
+        Shape spawn = factory.getShape(shapeId, materialId);
         spawn.Load(gameReader);
 
         shapes.Add(spawn);
