@@ -18,8 +18,25 @@ public class Shape : PersistableObject {
 
   private int shapeId = int.MinValue;
 
-  public void setMaterial(Material material, int materialId) {
+  public void SetMaterial(Material material, int materialId) {
     GetComponent<MeshRenderer>().material = material;
     MaterialId = materialId;
+  }
+
+  private Color color;
+
+  public void SetColor(Color color) {
+    GetComponent<MeshRenderer>().material.color = color;
+    this.color = color;
+  }
+
+  public override void Save(GameDataWriter writer) {
+    base.Save(writer);
+    writer.Write(color);
+  }
+
+  public override void Load(GameDataReader reader) {
+    base.Load(reader);
+    SetColor(reader.ReadColor());
   }
 }

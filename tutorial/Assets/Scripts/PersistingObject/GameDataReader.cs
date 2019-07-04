@@ -28,4 +28,8 @@ public class GameDataReader {
 
     return value;
   }
+
+  public Color ReadColor() {
+    return new Color(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
+  }
 }

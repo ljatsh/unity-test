@@ -4,8 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO. Object Assets
-// TODO. CSharp Serialization
+// TODO. HSVColor Model
+// TODO. Static Intialization and why Unity disabled this feature
+// TODO. Enable GPU Instancing
+
 public class ObjectVarietyGame : Game
 {
   public ShapeFactory factory;
@@ -24,6 +26,7 @@ public class ObjectVarietyGame : Game
     spawn.transform.localPosition = Random.insideUnitSphere * 5f;
     spawn.transform.localScale = Vector3.one * Random.Range(0.1f, 1.0f);
     spawn.transform.rotation = Random.rotation;
+    spawn.SetColor(Random.ColorHSV(0f, 1f, 0.5f, 1f, 0.25f, 1f, 1f, 1f));
 
     shapes.Add(spawn);
   }

@@ -11,7 +11,7 @@ public class ShapeFactory : ScriptableObject {
   public Shape getShape(int shapeId = 0, int materialId = 0) {
     Shape shape = Instantiate(prefabs[shapeId]);
     shape.ShapeId = shapeId;
-    shape.setMaterial(materials[materialId], materialId);
+    shape.SetMaterial(materials[materialId], materialId);
 
     return shape;
   }
