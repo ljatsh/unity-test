@@ -1,0 +1,2 @@
+
+Moq: 4.12.0 https://www.nuget.org/packages/moq
