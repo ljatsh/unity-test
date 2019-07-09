@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 // TODO. Array in CLR
-// TODO. foreach in CLR and foreach semantics requirement
-// TODO. yield iterator in CLR
 // TODO. NUnit strict equivalent constraint
+
+// Tips: refer foreach semantics(with iterator method) in TEST/CLR
 
 namespace Tests {
   public class CollectionTest {
@@ -66,7 +66,11 @@ namespace Tests {
       int index = 0;
       while(cursor.MoveNext())
         results[index++] = (int)cursor.Current;
+      Assert.That(results, Is.EquivalentTo(new int[]{1, 2, 3}));
 
+      index = 0;
+      foreach (var v in getTestEnumerable())
+        results[index++] = v;
       Assert.That(results, Is.EquivalentTo(new int[]{1, 2, 3}));
     }
 
@@ -114,6 +118,12 @@ namespace Tests {
     }
 
     private IEnumerator getTestEnumerator() {
+      yield return 1;
+      yield return 2;
+      yield return 3;
+    }
+
+    private IEnumerable<int> getTestEnumerable() {
       yield return 1;
       yield return 2;
       yield return 3;
