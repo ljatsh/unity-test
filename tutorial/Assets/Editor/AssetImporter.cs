@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class AssetImporter
 {
-  [MenuItem("AssetDatabase/ImportExample")]
+  [MenuItem("Tutorial/AssetDatabase/ImportExample")]
   static void ImportExample()
   {
     Debug.Log("ImportExample");
@@ -16,7 +16,7 @@ public class AssetImporter
     Debug.Log(tex);
   }
 
-  [MenuItem("AssetDatabase/Dump")]
+  [MenuItem("Tutorial/AssetDatabase/Dump")]
   static void Dump()
   {
     string[] rets = AssetDatabase.FindAssets("");
@@ -45,7 +45,7 @@ public class AssetImporter
     }
   }
 
-  [MenuItem ("AssetDatabase/FileOperationsExample")]
+  [MenuItem ("Tutorial/AssetDatabase/FileOperationsExample")]
   static void Example ()
   {
     string ret;

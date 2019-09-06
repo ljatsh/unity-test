@@ -21,5 +21,7 @@ TODO
 -----
 
 1. 创建自定义的Asset， 譬如Shape Factory.asset
+2. [BuildPipeline](https://docs.unity3d.com/Manual/BuildPlayerPipeline.html)
+3. https://docs.unity3d.com/Manual/ScriptedImporters.html
 
 [Back to TOC](#table-of-contents)
