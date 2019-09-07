@@ -8,12 +8,13 @@ public class CubeImporterEditor: ScriptedImporterEditor
 {
   public override void OnInspectorGUI()
   {
-    Debug.Log("OnInspectorGUI was called");
-    Debug.Assert(false);
-
     var colorShift = new GUIContent("Color Shift");
-    var prop = serializedObject.FindProperty("m_ColorShift");
+    //var prop = serializedObject.FindProperty("m_ColorShift");
+    var prop = serializedObject.GetIterator();
     EditorGUILayout.PropertyField(prop, colorShift);
     base.ApplyRevertGUI();
+
+    // SerializedProperty sp = serializedObject.GetIterator();
+    // Debug.Log(sp.displayName);
   }
 }
