@@ -28,5 +28,6 @@ TODO
 4. [Custome Managed Assemblies](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html)
 5. MonoScripts and MonoBehavior
 6. 如何平衡资源读取的速度和内存占用?
+7. [AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
 
 [Back to TOC](#table-of-contents)
