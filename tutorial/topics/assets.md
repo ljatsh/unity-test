@@ -29,5 +29,7 @@ TODO
 5. MonoScripts and MonoBehavior
 6. 如何平衡资源读取的速度和内存占用?
 7. [AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
+8. [AssetBundle Management](https://docs.unity3d.com/Manual/AssetBundles-Native.html) Resource能卸载来自于Bundle的object
+9. Application.backgroundLoadingPriority
 
 [Back to TOC](#table-of-contents)
