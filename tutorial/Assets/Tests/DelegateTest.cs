@@ -5,7 +5,14 @@ namespace Tests
 {
   // Tips:
   // 1. Refer more information about delegate from in TEST/CLR
-  // 2. event vs delegate https://dzone.com/articles/event-vs-delegate
+  // 2. Delegate vs Event (https://dzone.com/articles/event-vs-delegate)
+  // a) Event is very helpful to create Notification systems.
+  //    The same is not possible with Delegate because Delegate cannot be exposed as public.
+  // b) Delegate is very helpful to create call back functions, i.e pass delegate as function argument, 
+  //    which is not possible with Event.
+  // c) Event and Delegate both follow the Observer pattern.
+  //    The difference between both is that Event wraps Delegate type, and makes Delegate not modifiable in terms of changing references,
+  //    i.e. assigning a new object is not possible.
   public class DelegateTest
   {
     private delegate int Transform(int input);
@@ -55,6 +62,7 @@ namespace Tests
     public void TestEventBasics()
     {
       Assert.That(false, Is.True);
+      // https://docs.microsoft.com/en-us/dotnet/csharp/event-pattern
     }
   }
 }

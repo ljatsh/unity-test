@@ -33,3 +33,12 @@ TODO
 9. Application.backgroundLoadingPriority
 
 [Back to TOC](#table-of-contents)
+
+```csharp
+public static void LogMessage(string msg)
+{
+    WriteMessage?.Invoke(msg);
+}
+// null conditional operator (?.) short-circuits
+```
+
