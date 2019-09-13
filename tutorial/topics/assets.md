@@ -18,19 +18,19 @@ Reference
 * [tutorial](https://learn.unity.com/tutorial/assets-resources-and-assetbundles#5c7f8528edbc2a002053b5a5)
 * [Database](https://docs.unity3d.com/Manual/AssetDatabase.html)
 * [AssetImporter](https://docs.unity3d.com/Manual/ScriptedImporters.html)
+* [BuildPipeline](https://docs.unity3d.com/Manual/BuildPlayerPipeline.html)
 
 TODO
 -----
 
 1. 创建自定义的Asset， 譬如Shape Factory.asset
-2. [BuildPipeline](https://docs.unity3d.com/Manual/BuildPlayerPipeline.html)
-3. [SerializedObject](https://docs.unity3d.com/ScriptReference/SerializedObject.html)
-4. [Custome Managed Assemblies](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html)
-5. MonoScripts and MonoBehavior
-6. 如何平衡资源读取的速度和内存占用?
-7. [AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
-8. [AssetBundle Management](https://docs.unity3d.com/Manual/AssetBundles-Native.html) Resource能卸载来自于Bundle的object
-9. Application.backgroundLoadingPriority
+2. [SerializedObject](https://docs.unity3d.com/ScriptReference/SerializedObject.html)
+3. [Custome Managed Assemblies](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html)
+4. MonoScripts and MonoBehavior
+5. 如何平衡资源读取的速度和内存占用?
+6. [AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
+7. [AssetBundle Management](https://docs.unity3d.com/Manual/AssetBundles-Native.html) Resource能卸载来自于Bundle的object
+8. Application.backgroundLoadingPriority
 
 [Back to TOC](#table-of-contents)
 
