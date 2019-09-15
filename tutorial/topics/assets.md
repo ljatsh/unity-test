@@ -11,6 +11,8 @@ Tips
 
 * Asset的GUID隐藏了具体的文件路径， 对相互依赖很友好。简单地实验下来，移动文件并没有改变GUID，至于Unity的具体处理实现，没有必要再去研究了
 * 定义自己的的AssetImporter是很有意思的，可以方便的从其他格式适配到Unity内置格式
+* Scene引用的对象和Resources里面的资源， 为了减小内容，在build时候会进入最终的资源
+* 可以通过[Resources.FindObjectsOfTypeAll](https://docs.unity3d.com/ScriptReference/Resources.FindObjectsOfTypeAll.html)来列举已经载入的对象
 
 Reference
 ---------
@@ -19,6 +21,7 @@ Reference
 * [Database](https://docs.unity3d.com/Manual/AssetDatabase.html)
 * [AssetImporter](https://docs.unity3d.com/Manual/ScriptedImporters.html)
 * [BuildPipeline](https://docs.unity3d.com/Manual/BuildPlayerPipeline.html)
+* [Resources](https://docs.unity3d.com/ScriptReference/Resources.html)
 
 TODO
 -----

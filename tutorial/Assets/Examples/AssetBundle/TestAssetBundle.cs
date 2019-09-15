@@ -1,10 +1,14 @@
 ﻿
 using System.IO;
+using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestAssetBundle : MonoBehaviour
 {
   private Transform sample;
+
+  public GameObject image;
   
   void Start()
   {
@@ -24,14 +28,40 @@ public class TestAssetBundle : MonoBehaviour
     var objSample = bundle.LoadAsset<GameObject>("Assets/Examples/AssetBundle/Cube.prefab");
     sample = objSample.transform;
 
-    Transform obj = GameObject.Instantiate(sample, gameObject.transform);
-    obj.position = Vector3.left;
-    obj.localScale = Vector3.one * 3;
-    obj.name = "left";
+    Transform tf = GameObject.Instantiate(sample, gameObject.transform);
+    tf.position = Vector3.left;
+    tf.localScale = Vector3.one * 3;
+    tf.name = "left";
 
-    obj = GameObject.Instantiate(sample, gameObject.transform);
-    obj.position = Vector3.up * 2;
-    obj.localScale = Vector3.one * 2;
-    obj.name = "top";
+    tf = GameObject.Instantiate(sample, gameObject.transform);
+    tf.position = Vector3.up * 2;
+    tf.localScale = Vector3.one * 2;
+    tf.name = "top";
+
+    Image img = image.GetComponent<Image>();
+    Texture2D tex = Resources.Load<Texture2D>("heroIcon_10171");
+    Sprite sprite = img.sprite;
+    Sprite sprite_new = Sprite.Create(tex, sprite.rect, sprite.pivot);
+    img.sprite = sprite_new;
+
+    StringBuilder names = new StringBuilder();
+    Object[] objs = Resources.FindObjectsOfTypeAll(typeof(Object));
+    int count = 0;
+    foreach (Object obj in objs)
+    {
+      names.Append(obj.name);
+      count++;
+
+      if (count == 4)
+      {
+        names.AppendLine();
+        count = 0;
+      }
+      else
+      {
+        names.Append("\t");
+      }
+    }
+    Debug.Log(names);
   }
 }

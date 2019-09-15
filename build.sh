@@ -8,4 +8,4 @@ LiceFile=unity_2019.alf
 
 #$Unity -batchmode -createManualActivationFile -logfile
 #$Unity -batchmode -manualLicenseFile $LiceFile -logfile -
-$Unity -batchmode -projectPath tutorial -executeMethod ScriptBatch.BuildClock -logfile -
+$Unity -batchmode -projectPath tutorial -executeMethod ScriptBatch.BulidAssetTest -logfile -

@@ -38,4 +38,13 @@ public class ScriptBatch
       proc.Start();
     }
   }
+
+  [MenuItem("Tutorial/Build/AssetTest")]
+  public static void BulidAssetTest()
+  {
+    string path = "~/Desktop/tutorial_asset";
+    string[] levels = new string[] {"Assets/Examples/AssetBundle/AssetBundle.unity"};
+
+    BuildPipeline.BuildPlayer(levels, Path.Combine(path, "clock"), BuildTarget.StandaloneOSX, BuildOptions.None);
+  }
 }
