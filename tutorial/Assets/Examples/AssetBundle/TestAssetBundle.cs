@@ -39,10 +39,16 @@ public class TestAssetBundle : MonoBehaviour
     tf.name = "top";
 
     Image img = image.GetComponent<Image>();
-    Texture2D tex = Resources.Load<Texture2D>("heroIcon_10171");
-    Sprite sprite = img.sprite;
-    Sprite sprite_new = Sprite.Create(tex, sprite.rect, sprite.pivot);
-    img.sprite = sprite_new;
+    bool flag = true;
+    if (flag) // 这种方式最简单
+      img.sprite = Resources.Load<Sprite>("heroIcon_10171");
+    else
+    {
+      Texture2D tex = Resources.Load<Texture2D>("heroIcon_10171");
+      Sprite sprite = img.sprite;
+      Sprite sprite_new = Sprite.Create(tex, sprite.rect, sprite.pivot);
+      img.sprite = sprite_new;
+    }
 
     StringBuilder names = new StringBuilder();
     Object[] objs = Resources.FindObjectsOfTypeAll(typeof(Object));

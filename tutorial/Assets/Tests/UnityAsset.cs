@@ -29,6 +29,16 @@ namespace Tests
     }
 
     [Test]
+    public void TestMultipleObjectsFrom1Asset()
+    {
+      // heroIcon_10171 是sprite，通过UnityStudio观察，有两个object
+      Object[] objects = Resources.LoadAll("heroIcon_10171");
+      Assert.That(objects.Length, Is.EqualTo(2));
+      Assert.That(objects[0] as Texture2D, Is.Not.Null, "Texture2D is the main asset");
+      Assert.That(objects[1] as Sprite, Is.Not.Null);
+    }
+
+    [Test]
     public void TestResourceUnload()
     {
       // TODO

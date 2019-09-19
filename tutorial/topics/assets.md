@@ -13,6 +13,7 @@ Tips
 * 定义自己的的AssetImporter是很有意思的，可以方便的从其他格式适配到Unity内置格式
 * Scene引用的对象和Resources里面的资源， 为了减小内容，在build时候会进入最终的资源
 * 可以通过[Resources.FindObjectsOfTypeAll](https://docs.unity3d.com/ScriptReference/Resources.FindObjectsOfTypeAll.html)来列举已经载入的对象
+* AssetStudio工具很好用
 
 Reference
 ---------
@@ -22,6 +23,7 @@ Reference
 * [AssetImporter](https://docs.unity3d.com/Manual/ScriptedImporters.html)
 * [BuildPipeline](https://docs.unity3d.com/Manual/BuildPlayerPipeline.html)
 * [Resources](https://docs.unity3d.com/ScriptReference/Resources.html)
+* [AssetStudio](https://github.com/Perfare/AssetStudio)
 
 TODO
 -----
