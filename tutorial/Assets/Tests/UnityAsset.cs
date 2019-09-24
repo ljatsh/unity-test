@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
+using System.IO;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEditor;
@@ -41,7 +41,10 @@ namespace Tests
     [Test]
     public void TestResourceUnload()
     {
-      // TODO
+      Object obj = Resources.Load("heroIcon_10171");
+      Resources.UnloadAsset(obj);
+      Resources.UnloadAsset(obj);
+      Assert.That(true, "重复卸载貌似正常");
     }
 
     [Test]
@@ -53,6 +56,27 @@ namespace Tests
       Object obj2 = AssetDatabase.LoadAssetAtPath("Assets/Tests/heroIcon_10181.png", typeof(Object));
       Assert.That(System.Object.ReferenceEquals(obj1, obj2), "Unity的Object不会重复创建，除非bundle模式下接触关系");
       Assert.That(obj2.name, Is.EqualTo("AssetDatabaseTest"));
+    }
+
+    [Test]
+    public void TestAssetBundle()
+    {
+      string name = "Assets/Examples/AssetBundle/Cube.prefab";
+      var bundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "bundles", "test"));
+      Assert.That(bundle, Is.Not.Null);
+      var obj = bundle.LoadAsset<GameObject>(name);
+      Assert.That(obj, Is.Not.Null);
+      Assert.That(bundle.LoadAsset<GameObject>(name), Is.EqualTo(obj), "不会重复创建");
+      bundle.Unload(false);
+      Assert.Throws<MissingReferenceException>(()=> { bundle.LoadAsset<GameObject>(name); }, "卸载后不能再创建");
+
+      var bundleNew = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "bundles", "test"));
+      Assert.That(bundleNew, Is.Not.EqualTo(bundle));
+      var objNew = bundleNew.LoadAsset<GameObject>(name);
+      Assert.That(objNew, Is.Not.Null);
+      Assert.That(objNew, Is.Not.EqualTo(obj));
+      bundleNew.Unload(true);
+      Assert.Throws<MissingReferenceException>(()=> { bundleNew.LoadAsset<GameObject>(name); }, "彻底的卸载后也不能再创建");
     }
   }
 }
