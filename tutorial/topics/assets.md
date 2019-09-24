@@ -14,6 +14,10 @@ Tips
 * Scene引用的对象和Resources里面的资源， 为了减小内容，在build时候会进入最终的资源
 * 可以通过[Resources.FindObjectsOfTypeAll](https://docs.unity3d.com/ScriptReference/Resources.FindObjectsOfTypeAll.html)来列举已经载入的对象
 * AssetStudio工具很好用
+* Assembly Definitions，有下面几个原因，需要拆分并自定义Assembly
+  * 减少编译时间
+  * 做单元测试
+  * Assembly Definitions下面的Editor也会进入Assembly， 需要更改
 
 Reference
 ---------
@@ -24,18 +28,19 @@ Reference
 * [BuildPipeline](https://docs.unity3d.com/Manual/BuildPlayerPipeline.html)
 * [Resources](https://docs.unity3d.com/ScriptReference/Resources.html)
 * [AssetStudio](https://github.com/Perfare/AssetStudio)
+* [AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
+* [AssetBundle Management](https://docs.unity3d.com/Manual/AssetBundles-Native.html) Resource能卸载来自于Bundle的object
+* [Assembly Definitions](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html)
+* [Special Folder Names](https://docs.unity3d.com/Manual/SpecialFolders.html)
 
 TODO
 -----
 
 1. 创建自定义的Asset， 譬如Shape Factory.asset
 2. [SerializedObject](https://docs.unity3d.com/ScriptReference/SerializedObject.html)
-3. [Custome Managed Assemblies](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html)
-4. MonoScripts and MonoBehavior
-5. 如何平衡资源读取的速度和内存占用?
-6. [AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
-7. [AssetBundle Management](https://docs.unity3d.com/Manual/AssetBundles-Native.html) Resource能卸载来自于Bundle的object
-8. Application.backgroundLoadingPriority
+3. MonoScripts and MonoBehavior
+4. 如何平衡资源读取的速度和内存占用?
+5. Application.backgroundLoadingPriority
 
 [Back to TOC](#table-of-contents)
 
