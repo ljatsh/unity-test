@@ -24,7 +24,7 @@ using Object = System.Object;
 
 
 
-namespace Tests
+namespace CSharp
 {
   public class SemanticsEqualityTest {
     public class InfoA : IEquatable<InfoA> {

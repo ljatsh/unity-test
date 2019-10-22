@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests {
+namespace UnityTest {
   public class UnityQuaternionTest
   {
     // A Test behaves as an ordinary method

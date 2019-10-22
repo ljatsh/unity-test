@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 // ref: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/how-to-identify-a-nullable-type
-namespace Tests
+namespace CSharp
 {
   // 1. Purpose: T? is used in the environment which value can be null
   // C# syntactic sugar:

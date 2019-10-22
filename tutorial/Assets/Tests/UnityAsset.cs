@@ -6,7 +6,7 @@ using UnityEditor;
 
 // Tips
 // https://docs.unity3d.com/ScriptReference/Resources.html
-namespace Tests
+namespace UnityTest
 {
   public class UnityAsset
   {

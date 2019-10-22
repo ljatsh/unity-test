@@ -12,7 +12,7 @@ using UnityEngine.TestTools;
 // 2. DateTime Format
 // 3. Conversation between local time and utc time (https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.converttime?view=netcore-2.2)
 
-namespace Tests {
+namespace CSharp {
   public class DateTimeTest {
     [SetUp]
     public void SetUp() {

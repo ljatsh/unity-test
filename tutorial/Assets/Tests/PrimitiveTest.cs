@@ -4,7 +4,7 @@ using NUnit.Framework;
 // TODO. Ulps https://nunit.org/docs/2.5/equalConstraint.html
 // TODO. Single precision in ToString
 
-namespace Tests
+namespace CSharp
 {
   public class PrimitiveTest
   {

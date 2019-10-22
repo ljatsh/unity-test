@@ -1,7 +1,7 @@
 ﻿
 using NUnit.Framework;
 
-namespace Tests
+namespace CSharp
 {
   // Tips:
   // 1. Refer more information about delegate from in TEST/CLR

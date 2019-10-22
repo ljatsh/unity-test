@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests {
+namespace CSharp {
   public class CollectionArrayTest {
       // A Test behaves as an ordinary method
     [Test]

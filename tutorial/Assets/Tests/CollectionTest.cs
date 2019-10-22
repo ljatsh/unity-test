@@ -9,7 +9,7 @@ using UnityEngine.TestTools;
 
 // Tips: refer foreach semantics(with iterator method) in TEST/CLR
 
-namespace Tests {
+namespace CSharp {
   public class CollectionTest {
     // https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerator?view=netcore-2.2
     // Enumerators can be used to read data from a collection, but they cannot be used to modify the collection
