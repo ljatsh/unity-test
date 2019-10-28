@@ -10,7 +10,7 @@ public class TestNative : MonoBehaviour {
   [DllImport("native")]
   private static extern int sub(int a, int b);
 
-  [DllImport("native", CallingConvention = CallingConvention.FastCall)]
+  [DllImport("native")]
   private static extern int multiple(int a , int b);
 
   void Awake() {
